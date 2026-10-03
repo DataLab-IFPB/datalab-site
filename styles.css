@@ -69,7 +69,9 @@ h2 { font-family: Manrope, sans-serif; font-size: clamp(2.3rem,4.3vw,4.3rem); li
 .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
 .project-card { min-height: 360px; display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius); padding: 28px; background: rgba(255,255,255,.055); }
 .project-top { display: flex; justify-content: space-between; color: #9ec3aa; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
-.project-card h3 { font-size: 2rem; margin: 45px 0 10px; }
+.project-logo { display: flex; align-items: center; justify-content: center; height: 96px; margin-top: 28px; padding: 14px 20px; border-radius: 16px; background: #fff; }
+.project-logo img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+.project-card h3 { font-size: 2rem; margin: 22px 0 10px; }
 .project-card p { color: #c0d0c6; }
 .project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; }
 .project-tags span { background: transparent; border-color: rgba(255,255,255,.18); color: white; }
