@@ -52,7 +52,13 @@ h2 { font-family: Manrope, sans-serif; font-size: clamp(2.3rem,4.3vw,4.3rem); li
 .acronym-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; margin-top: 70px; }
 .acronym-card,.feature-card,.team-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: 0 10px 30px rgba(16,32,25,.035); }
 .acronym-card>span { display: inline-grid; place-items: center; width: 46px; height: 46px; border-radius: 14px; background: var(--green); color: white; font-family: Manrope; font-weight: 800; font-size: 1.25rem; }
-.acronym-card h3,.feature-card h3,.team-card h3,.project-card h3 { font-family: Manrope; letter-spacing: -.025em; }
+.acronym-card h3,.feature-card h3,.team-card h3,.project-card:not(.ghost-card) { counter-increment: project; }
+.project-num::before { content: counter(project, decimal-leading-zero); }
+.project-desc { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 7; line-clamp: 7; overflow: hidden; margin: 0 0 14px; }
+.project-desc.expanded { display: block; -webkit-line-clamp: unset; line-clamp: unset; }
+.project-more { align-self: flex-start; margin: 0 0 18px; padding: 0; background: none; border: 0; color: #86efac; font: inherit; font-weight: 800; cursor: pointer; }
+.project-more:hover { text-decoration: underline; }
+.project-card h3 { font-family: Manrope; letter-spacing: -.025em; }
 .acronym-card p,.feature-card p,.team-card p,.research-list p { color: var(--muted); }
 .section-head { max-width: 800px; margin-bottom: 50px; }
 .section-head.compact { margin-bottom: 38px; }
@@ -66,7 +72,7 @@ h2 { font-family: Manrope, sans-serif; font-size: clamp(2.3rem,4.3vw,4.3rem); li
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .projects-section { background: var(--dark); color: white; }
 .section-head.light p { color: #adc0b5; }
-.projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 18px; counter-reset: project; }
 .project-card { min-height: 360px; display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius); padding: 28px; background: rgba(255,255,255,.055); }
 .project-top { display: flex; justify-content: space-between; color: #9ec3aa; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
 .project-logo { display: flex; align-items: center; justify-content: center; height: 96px; margin-top: 28px; padding: 14px 20px; border-radius: 16px; background: #fff; }
